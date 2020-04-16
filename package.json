@@ -7,14 +7,18 @@
     "react": "^16.8.6",
     "react-device-detect": "^1.7.5",
     "react-dom": "^16.8.6",
+    "electron-is-dev": "^1.2.0",
+    "menubar": "^8.0.1",
     "react-hotkeys": "^2.0.0",
     "react-scripts": "3.0.1"
   },
+  "main": "public/electron.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\""
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -36,6 +40,10 @@
     "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-prefer-object-spread": "^1.2.1",
     "eslint-plugin-prettier": "^3.1.0",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "concurrently": "^5.1.0",
+    "electron": "^8.2.1",
+    "electron-builder": "^22.4.1",
+    "wait-on": "^4.0.2"
   }
 }

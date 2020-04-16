@@ -378,7 +378,6 @@ export default class App extends React.Component {
     return (
       <GlobalHotKeys handlers={this.handlers} keyMap={this.keyMap}>
         <div className="App" tabIndex="0">
-          <Nav />
           <Main
             fastConnection={this.state.fastConnection}
             player={this._player}
@@ -390,6 +389,7 @@ export default class App extends React.Component {
             ref={a => (this._player = a)}
           />
           <Footer
+            playing={this.state.playing}
             currentSong={this.state.currentSong}
             currentVolume={this.state.audioConfig.currentVolume}
             fastConnection={this.state.fastConnection}

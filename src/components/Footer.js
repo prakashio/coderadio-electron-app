@@ -44,24 +44,6 @@ export default class Footer extends React.Component {
   }
 
   render() {
-    let { alternativeMounts } = this.state;
-    let mountOptions = "";
-
-    if (alternativeMounts && this.props.url) {
-      mountOptions = (
-        <select
-          data-meta="stream-select"
-          onChange={this.handleChange.bind(this)}
-          value={this.props.url}
-        >
-          {alternativeMounts.map((mount, index) => (
-            <option key={index} value={mount.url}>
-              {mount.name}
-            </option>
-          ))}
-        </select>
-      );
-    }
 
     let durationVal = parseInt(this.state.durationVal.toFixed(2), 10);
 
@@ -72,14 +54,14 @@ export default class Footer extends React.Component {
           durationVal={durationVal}
           fastConnection={this.props.fastConnection}
           listeners={this.props.listeners}
-          mountOptions={mountOptions}
           playing={this.props.playing}
           songDuration={this.props.songDuration}
         />
         <PlayPauseButton
           playing={this.props.playing}
           togglePlay={this.props.togglePlay}
-        />
+        >
+        </PlayPauseButton>
         <Slider
           currentVolume={this.props.currentVolume}
           setTargetVolume={this.props.setTargetVolume}
