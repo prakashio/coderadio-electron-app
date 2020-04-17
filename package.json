@@ -2,6 +2,7 @@
   "name": "coderadio",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
   "dependencies": {
     "nchan": "^1.0.10",
     "react": "^16.8.6",
@@ -12,16 +13,33 @@
     "react-hotkeys": "^2.0.0",
     "react-scripts": "3.0.1"
   },
-  "main": "public/electron.js",
+  "main": "build/main.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\""
+    "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
+    "package": "electron-builder build --mac -c.extraMetadata.main=build/main.js --publish never"
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "build": {
+    "files": [
+      "build/**",
+      "build/icon.*",
+      "node_modules/**/*"
+    ],
+    "dmg": {
+      "icon": "build/icon.icns",
+      "background": "./build/background.png"
+    },
+    "publish": {
+      "provider": "github",
+      "repo": "electron-coderadio",
+      "owner": "prakash106"
+    }
   },
   "browserslist": {
     "production": [

@@ -1,8 +1,6 @@
 import React from "react";
 import NchanSubscriber from "nchan";
-import { GlobalHotKeys } from "react-hotkeys";
 
-import Nav from "./Nav";
 import Main from "./Main";
 import Footer from "./Footer";
 
@@ -376,37 +374,34 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <GlobalHotKeys handlers={this.handlers} keyMap={this.keyMap}>
-        <div className="App" tabIndex="0">
-          <Main
-            fastConnection={this.state.fastConnection}
-            player={this._player}
-            playing={this.state.playing}
-          />
-          <audio
-            crossOrigin="anonymous"
-            onError={this.onPlayerError}
-            ref={a => (this._player = a)}
-          />
-          <Footer
-            playing={this.state.playing}
-            currentSong={this.state.currentSong}
-            currentVolume={this.state.audioConfig.currentVolume}
-            fastConnection={this.state.fastConnection}
-            listeners={this.state.listeners}
-            mounts={this.state.mounts}
-            player={this._player}
-            playing={this.state.playing}
-            remotes={this.state.remotes}
-            setTargetVolume={this.setTargetVolume}
-            setUrl={this.setUrl}
-            songDuration={this.state.songDuration}
-            songStartedAt={this.state.songStartedAt}
-            togglePlay={this.togglePlay}
-            url={this.state.url}
-          />
-        </div>
-      </GlobalHotKeys>
+      <div className="App" tabIndex="0">
+        <Main
+          fastConnection={this.state.fastConnection}
+          player={this._player}
+          playing={this.state.playing}
+        />
+        <audio
+          crossOrigin="anonymous"
+          onError={this.onPlayerError}
+          ref={a => (this._player = a)}
+        />
+        <Footer
+          playing={this.state.playing}
+          currentSong={this.state.currentSong}
+          currentVolume={this.state.audioConfig.currentVolume}
+          fastConnection={this.state.fastConnection}
+          listeners={this.state.listeners}
+          mounts={this.state.mounts}
+          player={this._player}
+          remotes={this.state.remotes}
+          setTargetVolume={this.setTargetVolume}
+          setUrl={this.setUrl}
+          songDuration={this.state.songDuration}
+          songStartedAt={this.state.songStartedAt}
+          togglePlay={this.togglePlay}
+          url={this.state.url}
+        />
+      </div>
     );
   }
 }

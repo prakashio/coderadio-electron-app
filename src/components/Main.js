@@ -2,8 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { isBrowser } from "react-device-detect";
 
-import Visualizer from "./Visualizer";
-
 const Main = props => {
   return (
     <main>
